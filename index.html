@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="css/style.css">
-  
-  <title>Frontend Mentor | Interactive rating component</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
+  <title>Frontend Mentor | Interactive card details form</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -18,70 +18,143 @@
   </style>
 </head>
 <body>
-  <div class="contenedor">
-    <div class="contenedor_box">
-      <div class="container_box">
-        <div class="container_top">
-            <div class="content_imagen_box">
-              <div class="imagen_box">
-                <img src="images/icon-star.svg" class="imagen_form" alt="">
-              </div>
-            </div>
-            
-            <div class="content_text">
-              <h1 class="title_h1">How did we do?</h1>
-              <p class="parrafo">Please let us know how we did with your support request. All feedback is appreciated 
-                to help us improve our offering!</p>
-            </div>
-            
-            <div class="contenedor_boton_numeros">
-              <div class="content">
-                <span class="numero">1</span>
-              </div>
-
-              <div class="content">
-                <span class="numero">2</span>
-              </div>
-
-              <div class="content">
-                <span class="numero">3</span>
-              </div>
-
-              <div class="content">
-                <span class="numero">4</span>
-              </div>
-
-              <div class="content">
-                <span class="numero">5</span>
-              </div>
-            </div>
-
-            <div class="content_body">
-              <button type="button" class="boton">submit</button>
-            </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="contenedor_box contenedor_box_trank">
-      <div class="container_box">
-        <div class="container_top">
-          <div class="content_box_trank">
-            <div class="imagen_trank">
-              <img src="images/illustration-thank-you.svg" class="trank">
+  <main class="main">
+    <section class="section_card">
+     <div class="contenedor_barra">
+      <div class="barra">
+      
+    <div class="contenedor_cards">
+        <div class="contenedor_card">
+          <div class="inner_imagen">
+            <div class="card_front">
+              <img src="images/bg-card-front.png" alt="card_front" class="imagen_card">
             </div>
           </div>
           
-          <div class="contenedor_trank">
-            <h2 class="title_h1 title_title">Thank you</h2>
-            <p class="parrafo">We appreciate you taking the time to give a rating. If you ever need more support, 
-              don’t hesitate to get in touch!</p>
+          <div class="contenedor_info">
+            <div class="inner_info">
+              <div class="inner_icono">
+                <div class="icono">
+                  <img src="images/card-logo.svg" alt="logo" class="imagen_logo_card">
+                </div>
+              </div>
+              
+              <div class="inner_numero">
+                <span class="numero_tarjeta">0000 0000 0000 0000</span>
+              </div>
+
+              <div class="inner_datos_body">
+                <div class="inner_nombre">
+                  <p class="nombre_tarjeta">Jane Appleseed</p>
+                </div>
+
+                <div class="inner_fecha">
+                  <span class="fecha">00</span><span class="separator">/</span><span class="fecha_2">00</span>
+                </div>
+              </div>
+            </div>
+          </div>     
+        
+        
+        <div class="contenedor_card contenedor_card_2">
+          <div class="inner_imagen">
+            <div class="card_front card_back">
+              <img src="images/bg-card-back.png" class="imagen_card">
+            </div>
+          </div>
+
+          <div class="contenedor_info contenedor_info_cvc">
+            <div class="container_info">
+              <div class="inner_cvc">
+                <span class="numero_cvc">000</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  </div>
+      </div>
+      <div class="contenedor_formulario">
+        <form class="formulario" id="formulario">
+            <div class="inner_formulario">
+              <div class="grupo_input">
+                <label for="nombre" class="label_form">Cardholder Name</label>
+                <div class="contenedor_input" id="grupo_nombre">
+                  <input type="text" class="form_input" id="nombre" name="nombre" placeholder="e.g. Jane Appleseed">
+                  <p class="error"></p>
+                </div>
+              </div>
+              
+              <div class="grupo_input">
+                <label for="numero" class="label_form">Card Number</label>
+                <div class="contenedor_input" id="grupo_numero">
+                  <input type="number" class="form_input" id="numero" name="numero" placeholder="e.g. 1234 5678 9123 0000">
+                  <p class="error">Wrong format, numbers only</p>
+                </div>
+              </div>
+              
+              <div class="grupo_body">
+                <div class="grupo_forms">
+                  <div class="grupo_input">
+                    <div class="grupo_label">
+                      <label for="mes" class="label_form">Exp. Date (MM/YY)</label>
+                    </div>
+                    <div class="grupo_inputs">
+                      <div class="contenedor_input" id="grupo_mes">
+                        <input type="number" class="form_input" id="mes" name="mes" placeholder="MM">
+                        <p class="error">Can't be blank</p>
+                        <p class="error_error">Formato incorrecto</p>
+                      </div>
+
+                      <div class="contenedor_input" id="grupo_year">
+                        <input type="number" class="form_input" id="year" name="year" placeholder="YY">
+                        <p class="error">Can't be blank</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="grupo_input">
+                  <label for="cvc" class="label_form">CVC</label>
+                  <div class="contenedor_input" id="grupo_cvc">
+                    <input type="number" class="form_input" id="cvc" name="cvc" placeholder="e.g. 123">
+                    <p class="error">Can't be blank</p>
+                  </div>
+                </div>
+              </div>  
+              
+              <div class="contenedor_boton">
+                <button type="button" class="btn">Confirm</button>
+              </div>
+            </div>
+        </form>
+
+        <div class="contenedor_modal">
+          <div class="inner_modal">
+            <div class="inner_modal_imagen">
+              <div class="imagen_modal">
+                <img src="images/icon-complete.svg">
+              </div>
+              
+              <div class="inner_trank">
+                <h2 class="trank">Thank you!</h2>
+              </div>
+            </div>
+            
+            <div class="inner_texto">
+              <p class="texto">We've added your card details</p>
+            </div>
+
+            <div class="contenedor_boton_modal">
+              <button type="button" class="btn btn_modal">Continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+     </div>
+    </section>
+  </main>
 </body>
-  <script defer src="js/index.js"></script>
+  <script src="js/index.js"></script>
 </html>
+

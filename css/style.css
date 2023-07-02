@@ -1,26 +1,24 @@
 @charset "UTF-8";
 /*
-
   Con este reset vamos a resolver:
     👉 Unificar el uso de Custom Properties
     👉 Problemas de box-model más generales
     👉 Problemas con imagenes, vídeos e iconos svg
     👉 Problemas con tipografías y etiquetas input en formularios
     👉 Unificar la tipografía de todas las etiquetas de una web
-
 */
 /* Aquí definimos las Custom properties */
 :root {
-    --Orange: hsl(25, 97%, 53%);
-    --White: hsl(0, 0%, 100%);
-    --Light-Grey: hsl(217, 12%, 63%);
-    --Medium-Grey: hsl(216, 12%, 54%);
-    --Dark-Blue: hsl(213, 19%, 18%);
-    --Very-Dark-Blue: hsl(216, 12%, 8%);    
   --negro: #393939;
   /* Tipografía */
-  --tipo-principal: 'Overpass', sans-serif;
-  }
+  --Linear-gradient /*(active input border)*/: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+  --Red /*(input errors)*/: hsl(0, 100%, 66%);
+  --White: hsl(0, 0%, 100%);
+  --Light-grayish-violet: hsl(270, 3%, 87%);
+  --Dark-grayish-violet: hsl(279, 6%, 55%);
+  --Very-dark-violet: hsl(278, 68%, 11%);
+  --tipo-principal: 'Space Grotesk', sans-serif;
+}
 
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
@@ -148,119 +146,251 @@ svg {
 /* Configuramos la tipografía para toda la web */
 body {
   min-height: 100vh;
-  font-size: 100%;
+  font-size: 1.125em;
   font-family: var(--tipo-principal);
-  color: #fff;
+  color: var(--negro);
   /* opcional */
   line-height: 1.4em;
- 
+  /* opcional */
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
   /* opcional */
   font-smooth: always;
   /* opcional */
   -webkit-font-smoothing: antialiased;
   /* opcional */
   -moz-osx-font-smoothing: grayscale;
-}
-.contenedor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 1.5rem;
-    background: var(--Very-Dark-Blue);
-}
-.contenedor_box{
-    max-width: 420px;
+}   
+
+.contenedor_barra{
     width: 100%;
-    border-radius: 1rem;
-    padding: 1.5rem;
-    background: var(--Dark-Blue);
+    height: 100vh;
 }
-.content_imagen_box{
+.barra{
+    background: url(../images/bg-main-desktop.png);
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 30% 100%;
     display: flex;
-    margin-bottom: 1rem;
-}
-.imagen_box{
-    display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    padding: .5rem;
-    background: var(--Dark-Blue);
 }
-.imagen_form{
-    width: 30px;
+.contenedor_cards{
+    max-width: 400px;
+    margin: 0 auto;
+    /*position: relative;
+    left: 0;*/
 }
-.title_h1{
-    font-size: 2em;
-    font-weight: 700;
-    line-height: 1.5;
+.contenedor_card{
+  position: relative;
+}
+.contenedor_info{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 1em;
+}
+.inner_icono{
+    margin-bottom: 3.5rem;
+}
+.imagen_logo_card{
+    width: 90px;
+}
+.numero_tarjeta{
     color: var(--White);
+    letter-spacing: .1em;
 }
-.parrafo{
-    font-weight: 400;
-    font-size: 1em;
-    color: var(--Medium-Grey);
-}
-.contenedor_boton_numeros{
+.inner_datos_body{
     display: flex;
     justify-content: space-between;
-    margin-top: 1rem;
-}
-.content{
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--Very-Dark-Blue);
-    color: var(--Medium-Grey);
-    cursor: pointer;
-}
-.content:hover{
-  background: var(--Light-Grey);
-  color: var(--White);
-}
-.content_body{
     margin-top: 1.5rem;
 }
-.boton{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 40px;
+.nombre_tarjeta,
+.fecha,
+.fecha_2,
+.separator,
+.numero_cvc{
+    font-size: .8em;
     color: var(--White);
-    font-weight: 700;
-    font-size: 1.2em;
-    letter-spacing: 1.32px;
-    cursor: pointer;
+    letter-spacing:  2px;
     text-transform: uppercase;
-    background: var(--Orange);
-    transition: all .3s ease;
 }
-.boton:hover{
-    background: var(--White);
-    color: var(--Orange);
+.numero_tarjeta{
+  font-size: 1.5rem;
 }
-.content_box_trank{
+.contenedor_info_cvc{
+    height: 100%;
+}
+.container_info{
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
-.contenedor_trank{
+.inner_cvc{
+    width: 100%;
+    text-align: right;
+}
+.contenedor_card_2{
+    transform: translateX(110px);
     margin-top: 1.5rem;
-    text-align: center;
 }
-.title_title{
-    margin-bottom: .5rem;
+.contenedor_info_cvc{
+    padding: 2.3rem;
+}
+.contenedor_formulario{
+    margin: 0 auto;
+}
+.contenedor_formulario{
+  width: 100%;
+  max-width: 488px;
+  padding: 1rem;
+}
+.grupo_input{
+  margin-bottom: 1rem;
+}
+.form_input{
+  width: 100%;
+  padding: 1rem;
+  border: 1.5px solid var(--Light-grayish-violet);
+  border-radius: 10px;
+  outline: none;
+}
+.form_input:focus{
+  border: 1.5px solid hsl(249, 99%, 64%) to hsl(278, 94%, 30);
+}
+.grupo_body{
+  display: flex;
+}
+.grupo_forms{
+  margin-right: 1rem;
+}
+.grupo_inputs{
+  display: flex;
+  gap: 1rem;
+}
+.contenedor_boton{
+  margin-top: 1.5rem;
+}
+.btn{
+  width: 100%;
+  padding: 1rem;
+  background: var(--Very-dark-violet);
+  color: var(--White);
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.contenedor_modal{
+  display: none;
+}
+.inner_modal{
+  padding-top: 3rem;
+}
+.inner_modal_imagen{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.inner_trank{
+  margin-top: 3rem;
 }
 .trank{
-    width: 270px;
+  font-size: 2em;
+  font-weight: 500;
+  color: var(--Very-dark-violet);
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
+.inner_texto{
+  text-align: center;
+}
+.texto{
+  color: var(--Dark-grayish-violet);
+}
+.contenedor_boton_modal{
+  margin-top: 3rem;
+}
+.error{
+  display: none;
+  margin-top: .1rem;
+}
+.error_error{
+  display: none;
+}
+.error_input .form_input{
+  border: 2px solid var(--Red);
+}
+.error_input .error{
+    display: block;
+    font-size: .9em;
+    font-weight: 500;
+    color: var(--Red);
+}
+.desactive_form{
+  display: none;
+}
+.active_modal{
+  display: block;
+}
+.error_active .error_error{
+  display: block;
+  font-size: .9em;
+    font-weight: 500;
+    color: var(--Red);
+}
+.error_active .form_input{
+  border: 2px solid var(--Red);
+}
+@media screen and (max-width: 1127px){
+  .barra{
+    background-size: 35% 100%;
+  }
 
-.contenedor_box_trank{
-    display: none;
+  .contenedor_card_2{
+    transform: translateX(55px);
+  }
 }
-.activ{
-  background: orange;
-  color: #fff;
+@media screen and (max-width: 985px){
+  .barra{
+    flex-direction: column;
+    background-size: 100% 30%;
+    padding: 1rem;
+  }
+ .contenedor_card_2{
+  margin-top: .5rem;
+  transform: none;
+ }
+}
+@media screen and (max-width: 410px){
+  .inner_info{
+    padding: 0;
+  }
+  .numero_tarjeta{
+    font-size: 1.2em;
+  }
+  .inner_icono{
+    margin-bottom: 2.8rem;
+  }
+}
+@media screen and (max-width: 390px){
+  .nombre_tarjeta,
+.fecha,
+.fecha_2,
+.separator,
+.numero_cvc{
+    font-size: .7em;
+}
+.inner_icono{
+  margin-bottom: 2.5rem;
+}
+}
+@media screen and (max-width: 373px){
+  .inner_icono{
+    margin-bottom: 2rem;
+  }
 }
